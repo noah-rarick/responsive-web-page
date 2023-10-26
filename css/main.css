@@ -8,23 +8,25 @@
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #b64ab9;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 26px;
+  font-family: 'IBM Plex Mono', monospace;
+
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #b64ab9;
+  color: rgb(255, 255, 255);
 }
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-  background-color: #002fff;
-  color: white;
+  background-color: #000000;    
+  color: #ffffff;
 }
 
 /* Hide the icon that should open and close the topnav on small screens */
@@ -36,6 +38,7 @@
 .content {
   padding: 14px;
   font-size: 22px;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* When the screen is less than 800 pixels wide */
@@ -73,3 +76,38 @@
     text-align: left;
   }
 }
+
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: fixed;
+    bottom: 100;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Style the button used to pause/play the video */
+  /* #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  } */
