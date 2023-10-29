@@ -1,8 +1,156 @@
 /* Add a black background color to the top navigation */
+body {
+    background-color: lightgrey;
+}
+
 .topnav {
   background-color: rgb(0, 0, 0);
   overflow: hidden;
 }
+
+
+#videoControls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering the controls */
+    display: none; /* Hide by default */
+}
+
+#playBtn, #pauseBtn {
+    display: none; /* Hide both buttons by default */
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.video-container:hover #videoControls {
+    display: block; /* Show controls on hover */
+}
+
+video[paused] + #videoControls #playBtn {
+    display: block; /* If video is paused, show play button */
+}
+
+video:not([paused]) + #videoControls #pauseBtn {
+    display: block; /* If video is playing, show pause button */
+}
+
+.content2 {
+    color: #f1f1f1;
+    width: 50%;;
+    padding: 20px;
+    float:left;
+}
+
+.accordion {
+    background-color: whitesmoke;
+    color: #b64ab9;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+  }
+  
+  .panel1 {
+    display: table-cell;
+  }
+
+.logo {
+    /* float: left; */
+    width: 40%;
+    height: 20%;
+}
+.video-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Spacing between content and video */
+    padding: 1px; /* Adjust this for desired thickness */
+    margin: 15px 0;
+}
+
+.panelimage {
+    width: 20%;
+    height: 20% !important;
+    border:10px;
+}
+
+.list-container {
+    max-width: 500px; /* This was previously on the .stylized-list. Now it defines the width for both the heading and the list */
+    margin: 20px auto; /* Centering the container, adjust as needed */
+}
+
+#video {
+    width: 50%; /* Changed from fixed positioning to responsive width */
+    height: auto;
+    display: block; /* To remove the bottom spacing */
+    border: 4px solid #b64ab9; /* Optional: This will act as a spacing between gradient and the video */
+    outline: none;
+}
+
+.stylized-heading {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker background than the list for differentiation */
+    color: #b64ab9; /* Using the same color as the list text for consistency */
+    padding: 10px 20px; /* Padding for space inside the heading */
+    border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+    font-size: 24px; /* Adjust if you need a bigger or smaller font size */
+    margin-bottom: -10px; /* This will allow the heading to seamlessly merge with the list box */
+    text-align: left; /* Center align the heading text */
+}
+
+.stylized-list {
+    list-style-type: none; /* Remove the default bullet points */
+    padding: 20px; /* Add padding for space inside the box */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background with some transparency */
+    border-radius: 0 0 8px 8px; /* Rounded corners for the box */
+    max-width: 500px; /* Optional: Set a max-width if you want */
+    margin: 20px 0; /* Space above and below the box */
+}
+
+.stylized-list li {
+    padding: 10px 0; /* Spacing between list items */
+    position: relative; /* For positioning the custom icon */
+    font-size: 18px; /* Adjust as needed for desired text size */
+    line-height: 1.4; /* Spacing between lines if list items wrap */
+    color: #b64ab9; /* Color of the list text */
+}
+
+/* Adding a custom icon for each list item */
+.stylized-list li::before {
+    content: '\2022'; /* Unicode for a bullet point */
+    color: #fff; /* White color for the bullet point to contrast with the dark background */
+    font-weight: bold; /* Making the bullet point bold */
+    display: inline-block; /* Necessary for positioning the bullet point */
+    width: 20px; /* Width of the bullet point area */
+    margin-right: 10px; /* Space between bullet point and text */
+}
+
+/* Style the button used to pause/play the video */
 
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -15,6 +163,12 @@
   font-size: 26px;
   font-family: 'IBM Plex Mono', monospace;
 
+}
+
+.mySlides img {
+    width: 100%;  /* This ensures that the image takes up the full width of its container. */
+    max-width: 1000px;  /* This means the image can be as wide as 1000px but no wider. */
+    height: auto;  /* This maintains the image's aspect ratio. */
 }
 
 /* Change the color of links on hover */
@@ -37,8 +191,10 @@
 /* Style for page content */
 .content {
   padding: 14px;
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'IBM Plex Mono', monospace;
+  float: left;
+  
 }
 
 /* When the screen is less than 800 pixels wide */
@@ -53,6 +209,11 @@
     float: right;
     display: block;
   }
+}
+
+.video-container video {
+    width: 50%;
+    height: 50%;
 }
 
 /* When the screen is less than 800 pixels wide, if the user clicks on the icon */
@@ -77,6 +238,101 @@
   }
 }
 
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 25%;
+  height: 100%;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  float: right;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: black;
+  background-color: #b64ab9;
+  font-size: 20px;
+  font-style: bold;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  z-index: 2;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 /* Style the video: 100% width and height to cover the entire window */
 #myVideo {
     position: fixed;
@@ -90,29 +346,16 @@
     padding: 20px;
 
   }
-  
+
+  body {
+    background: rgba(0, 0, 0, .6);
+  }
   /* Add some content at the bottom of the video/page */
   .content {
     position: fixed;
-    bottom: 100;
-    background: rgba(0, 0, 0, 0.5);
     color: #f1f1f1;
-    width: 100%;
+    width: 75%;
+    height: auto;
     padding: 20px;
+    float:left;
   }
-
-  /* Style the button used to pause/play the video */
-  /* #myBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  #myBtn:hover {
-    background: #ddd;
-    color: black;
-  } */

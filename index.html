@@ -19,31 +19,75 @@
     <body>
         <div class="topnav" id="myTopnav">
             <a class="active" href="index.html">About Me</a>
-            <a href="section1.html">5 Year Plan</a>
-            <a href="section2.html">ThreadsByNoah</a>
-            <a href="section3.html">Mycology</a>
-            <a href="see_also.html">Work</a>
-            <a href="references.html">References</a>
+            <a href="5yearplan.html">5 Year Plan</a>
+            <a href="threads.html">ThreadsByNoah</a>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
             <a href="javascript:void(0);" class="icon">
                 <i class="fa fa-bars"></i>
               </a>
         </div>
-
-        <div class="content">
-            Welcome to my life!
-            <br>
-            <br>
-            Here you will find a little bit about me, my education, and hobbies
-            <br>
-            <div>
-                <img src="img/game-night.JPG" class='front-image' height="20%" width="15%">
-                <img src="img/earls-pic.JPG" class='front-image' height="20%" width="15%">
-                <img src="img/boat.jpg" class='front-image' height="20%" width="15%">
+        <div class="content-carousel">
+            <div class="content">
+                Welcome to my life!
+                <br>
+                <br>
+                Here you will find a little bit about me, my education, and hobbies
+                <br>
+                <br>
+                I'm a senior year student at the University of Washington in Geography: Data Science
+                <br>
+                <br>
+                I love fashion, vintage clothing, mycology and denim restoration
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                Right now I'm working as a Business Intelligence Intern at the Delta Dental of Washington
+                <br>
+                <br>
+                My dream is to own my busines doing direct to consumer e-commerce selling my TBD product
+                <br>
+                <br>
+                My corporate dream is to work for a company in fashion or coffee in a data science role
             </div>
-            <br>
-
+    
+            <div class="slideshow-container">
+    
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="img/game-night.JPG" >
+                  <div class="text">Me with my baby!</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="img/earls-pic.JPG" >
+                  <div class="text">Me at Earls!</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="img/boat.jpg" >
+                  <div class="text">Me on a boat!</div>
+                </div>
+              
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                  </div>
+              </div>
+    
         </div>
+    </body>
+  
+  <!-- The dots/circles -->
         
         <!-- <video autoplay muted loop id="myVideo">
             <source src="" type="video/mp4">
@@ -56,5 +100,4 @@
           </div> -->
 
         <script src="js/main.js"></script>
-    </body>
 </html>
